@@ -18,7 +18,8 @@ class Character(Base):
     eye_color = Column(String(20))
     birth_year = Column(String(20))
     gender = Column(String(20))
-    homeworld = Column(Integer(), ForeignKey('planet.planet_id'))
+    homeworld = Column(Integer(), ForeignKey('planets.planet_id'))
+    starships = Column(Integer(), ForeignKey('starships.starship_id'))
 
 
 class Address(Base):
