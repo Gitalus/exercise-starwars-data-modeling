@@ -22,15 +22,19 @@ class Character(Base):
     starships = Column(Integer(), ForeignKey('starships.starship_id'))
 
 
-class Address(Base):
-    __tablename__ = 'address'
-    # Here we define columns for the table address.
-    id = Column(Integer, primary_key=True)
-    street_name = Column(String(250))
-    street_number = Column(String(250))
-    post_code = Column(String(250), nullable=False)
-    person_id = Column(Integer, ForeignKey('person.id'))
-    person = relationship(Person)
+class Planet(Base):
+    __tablename__ = 'planets'
+    # Here we define columns for the table planets.
+    planet_id = Column(Integer, primary_key=True)
+    name = Column(String(50), nullable=False, unique=True)
+    rotation_period = Column(Float())
+    orbital_period = Column(Float())
+    diameter = Column(Float())
+    climate = Column(String(20))
+    gravity = Column(String(20))
+    terrain = Column(String(20))
+    surface_water = Column(Float())
+    population = Column(Integer())
 
 ## Draw from SQLAlchemy base
 render_er(Base, 'diagram.png')
