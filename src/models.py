@@ -25,7 +25,7 @@ class Character(Base):
 class Planet(Base):
     __tablename__ = 'planets'
     # Here we define columns for the table planets.
-    planet_id = Column(Integer, primary_key=True)
+    planet_id = Column(Integer(), primary_key=True)
     name = Column(String(50), nullable=False, unique=True)
     rotation_period = Column(Float())
     orbital_period = Column(Float())
@@ -35,6 +35,12 @@ class Planet(Base):
     terrain = Column(String(20))
     surface_water = Column(Float())
     population = Column(Integer())
+
+class Residents(Base):
+    __tablename__ = 'residents'
+    # Here we define columns for the table planets.
+    planet_id = Column(Integer(), ForeignKey('planets.planet_id'), primary_key=True)
+    character = Column(Integer(), ForeignKey('characters.character_id'), primary_key=True)
 
 ## Draw from SQLAlchemy base
 render_er(Base, 'diagram.png')
