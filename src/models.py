@@ -39,7 +39,7 @@ class Planet(Base):
 class Residents(Base):
     __tablename__ = 'residents'
     # Here we define columns for the table residents.
-    planet_id = Column(Integer(), ForeignKey('planets.planet_id'), primary_key=True)
+    planet_id = Column(Integer(), ForeignKey('planets.planet_id'))
     character = Column(Integer(), ForeignKey('characters.character_id'), primary_key=True)
 
 class Starship(Base):
