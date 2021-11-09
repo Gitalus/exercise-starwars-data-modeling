@@ -20,13 +20,6 @@ class FavCharacters(Base):
     char_id = Column(Integer, ForeignKey('characters.id'), primary_key=True)
 
 
-class Residents(Base):
-    __tablename__ = 'residents'
-
-    planet_id = Column(Integer, ForeignKey('planets.planet_id'))
-    character = Column(Integer, ForeignKey('characters.character_id'), primary_key=True)
-
-
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
